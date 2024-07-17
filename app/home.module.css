@@ -13,12 +13,18 @@
     width: 100%;
 }
 
+.container-header p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inria Sans", sans-serif;
+}
+
 .container-content{
     background-color: black;
     height: 80%;
     display: flex;
     flex-direction: column;
-    padding: 0 10px 20px 10px ;
+    padding: 0 40px 20px 40px ;
     gap: 2rem;
 }
 
@@ -35,5 +41,10 @@
 .container-header{
     display: flex;
     justify-content: space-evenly;
+}
 
+.container-header input {
+    border-radius: 10px;
+    width: 256px;
+    height: 48px;
 }
