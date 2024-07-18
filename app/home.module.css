@@ -2,11 +2,15 @@
     background-color: brown;
     height: 100vh;
     width: 100%;
+    font-family: "Inria Sans", sans-serif;
     display: flex;
     flex-direction: column;
+    font-weight: bold;
+    font-size: 20;
 }
 
 .container-header{
+    padding-top: 40px;
     display: flex;
     background-color: aquamarine;
     height: 20%;
@@ -35,5 +39,9 @@
 .container-header{
     display: flex;
     justify-content: space-evenly;
+}
 
+.container-header input{
+    border-radius: 10px;
+    height: 48px;
 }
