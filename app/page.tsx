@@ -1,71 +1,96 @@
-'use client'; 
+'use client';
 import "./globals.css";
-import React, { useEffect, useState } from 'react'; 
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import styles from './home.module.css';
+import Link from "next/link";
 
-async function getData() { 
-  const responseAnime = await fetch('http://localhost:8000/anime/'); 
-  const responseManga = await fetch('http://localhost:8000/manga/'); 
-  if (!responseAnime.ok || !responseManga.ok) { 
-      console.error('Error on fetch data');  
-      return { anime: [], manga: [] }; 
-  } 
-  
-  const dataAnime = await responseAnime.json(); 
-  const dataManga = await responseManga.json(); 
-  console.log("oi", dataAnime);
-  console.log("oi2", dataManga);
-  return { anime: dataAnime, manga: dataManga }; 
+async function getData() {
+  try {
+    const [responseAnime, responseManga] = await Promise.all([
+      fetch('http://localhost:8000/anime/'),
+      fetch('http://localhost:8000/manga/'),
+    ]);
+
+    if (!responseAnime.ok || !responseManga.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const [dataAnime, dataManga] = await Promise.all([
+      responseAnime.json(),
+      responseManga.json(),
+    ]);
+
+    return { anime: dataAnime, manga: dataManga };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return { anime: [], manga: [] };
+  }
 }
 
-export default function Home(){
-  const [data, setData] = useState({ anime: [], manga: [] }); 
+export default function Home() {
+  const [data, setData] = useState({ anime: [], manga: [] });
 
-  useEffect(() => { 
-      getData().then(setData); 
-  }, []); 
+  useEffect(() => {
+    let isMounted = true;
+
+    getData().then(data => {
+      if (isMounted) setData(data);
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <main>
       <div className={styles['container-body']}>
-
         <div className={styles['container-header']}>
-
           <div className={styles['container-search']}>
             <p> Search </p>
             <input type="text" />
           </div>
-          
-          <div className={styles['container-Gender']}>
+
+          <div className={styles['container-gender']}>
             <p> Gender </p>
             <input type="text" />
           </div>
-          
+
           <div className={styles['container-year']}>
             <p> Year </p>
             <input type="text" />
           </div>
-        
         </div>
         <div className={styles['container-content']}>
-          
-            <div className={styles['container-anime']}>
-              <h1>BEST ANIME</h1>
+          <div className={styles['container-anime']}>
+            <h1>BEST ANIME</h1>
+            <div className={styles['container-anime-images']}>
               {data.anime.map((anime) => (
-                <p key={anime.id}>{anime.title}</p>
+                <div key={anime.id}>
+                  <img src={anime.image} alt={anime.title || 'Anime image'} />
+                  <Link href={anime.title}>
+                    <p>{anime.title}</p>
+                  </Link>
+                </div>
               ))}
             </div>
+          </div>
 
-            <div className={styles['container-manga']}>
-              <h1>Best Manga</h1>
+          <div className={styles['container-manga']}>
+            <h1>BEST MANGA</h1>
+            <div className={styles['container-manga-images']}>
               {data.manga.map((manga) => (
-                <p key={manga.id}>{manga.title}</p>
+                <div key={manga.id}>
+                  <img src={manga.image} alt={manga.title || 'Manga image'} />
+                  <Link href={manga.title}>
+                    <p>{manga.title}</p>
+                  </Link>
+                </div>
               ))}
             </div>
+          </div>
         </div>
-      </div>        
-
-     </main>
+      </div>
+    </main>
   );
 };
