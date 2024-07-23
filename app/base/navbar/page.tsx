@@ -12,35 +12,35 @@ export default function Navbar() {
         <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
       </Head>
       <div className={styles['container-all']}>
-          <ul className={styles['container-list']}>
-              <div className={styles['container-nav']}>
-              <li>
-                  <Link href="/" legacyBehavior>
-                      <a className={styles['container-links']}> Home </a>
-                  </Link>            
-              </li>
-              <li>
-                  <Link href="/search" legacyBehavior>
-                  <a className={styles['container-links']}> Search </a>
-                  </Link>
-              </li>
-              <li>
-                  <Link href="/manga" legacyBehavior>
-                      <a className={styles['container-links']}>Manga list</a>
-                  </Link>
-              </li>
-              <li>
-                  <Link href="/anime" legacyBehavior>
-                      <a className={styles['container-links']}>Anime list</a>
-                  </Link>
-              </li>
-              </div>
-          </ul>
-          <div className={styles['container-profile']}>
-              <Link href="/profile" legacyBehavior>
-                   <a className={styles['container-links']}>Profile</a>
+        <ul className={styles['container-list']}>
+          <div className={styles['container-nav']}>
+            <li>
+              <Link href="/" legacyBehavior>
+                <a className={styles['container-links']}>Home</a>
+              </Link>            
+            </li>
+            <li>
+              <Link href="/search/animelist" legacyBehavior>
+                <a className={styles['container-links']}>Search</a>
               </Link>
+            </li>
+            <li>
+              <Link href="/users/mangalist" legacyBehavior>
+                <a className={styles['container-links']}>Manga List</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/users/anime" legacyBehavior>
+                <a className={styles['container-links']}>Anime List</a>
+              </Link>
+            </li>
           </div>
+        </ul>
+        <div className={styles['container-profile']}>
+          <Link href="/profile" legacyBehavior>
+            <a className={styles['container-links']}>Profile</a>
+          </Link>
+        </div>
       </div>
     </>
   );
