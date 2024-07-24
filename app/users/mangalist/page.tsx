@@ -1,81 +1,61 @@
 import React from 'react';
+import AnimeListSection from '../base/page';
+import styles from './mangalist.module.css';
 
-export default function mangalist() {
-  const containeAll = {
-    display: 'flex',
-    backgroundColor: 'black', 
-    width: '100%', 
-    
-  };
+const watchingData = [
+  {
+    id: 1,
+    title: 'VINLAND SAGA SEASON 2',
+    score: '6/24',
+    progress: '6/24',
+    type: 'TV',
+    image: 'path/to/image1.jpg',
+  },
+  // Add more watching data here
+];
 
-  const containerLeft = {
-    display: 'flex',
-    flexDirection: 'row' as const,
-    marginBottom: '16px',
-  };
+const completedData = [
+  {
+    id: 2,
+    title: 'AKIRA',
+    score: 10,
+    progress: '1',
+    type: 'Movie',
+    image: 'path/to/image2.jpg',
+  },
+];
 
-  const containerList = {
-    flexGrow: 1,
-    padding: '8px',
-  };
+const DroppedData = [
+  {
+    id: 2,
+    title: 'AKIRA',
+    score: 10,
+    progress: '1',
+    type: 'Movie',
+    image: 'path/to/image2.jpg',
+  },
+];
 
-  const containerFilter = {
-    margin: '0 8px',
-    padding: '8px',
-    borderRadius: '4px',
-  };
+const PlanningData = [
+  {
+    id: 2,
+    title: 'AKIRA',
+    score: 10,
+    progress: '1',
+    type: 'Movie',
+    image: 'path/to/image2.jpg',
+  },
+];
 
-  const containerSort = {
-    margin: '0 8px',
-    padding: '8px',
-    borderRadius: '4px',
-  };
 
-  const containerContent = {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    gap: '16px',
-  };
 
-  const containerSection = {
-    borderRadius: '4px',
-  };
-
+export default function MangaList() {
   return (
-    <main>
-      <div style={containeAll}>
-        <div style={containerLeft}>
-          <div style={containerList}>
-            {/* List content here */}
-          </div>
-
-          <div style={containerFilter}>
-            {/* Filter content here */}
-          </div>
-
-          <div style={containerSort}>
-            {/* Sort content here */}
-          </div>
-        </div>
-
-        <div style={containerContent}>
-          <div style={containerSection}>
-            {/* Watching content here */}
-          </div>
-
-          <div style={containerSection}>
-            {/* Completed content here */}
-          </div>
-
-          <div style={containerSection}>
-            {/* Dropped content here */}
-          </div>
-
-          <div style={containerSection}>
-            {/* Planning content here */}
-          </div>
-        </div>
-      </div>
+    <main className={styles['containeAll']}>
+      <AnimeListSection title="Watching" data={watchingData} />
+      <AnimeListSection title="Completed" data={completedData} />
+      <AnimeListSection title="Dropped" data={DroppedData} />
+      <AnimeListSection title="Planning" data={PlanningData} />
     </main>
   );
 }

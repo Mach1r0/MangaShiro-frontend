@@ -1,0 +1,42 @@
+.containeAll {
+    display: flex;
+    background-color:antiquewhite ;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .containerLeft {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+  
+  .containerList {
+    flex-grow: 1;
+    padding: 8px;
+  }
+  
+  .containerFilter {
+    margin: 0 8px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .containerSort {
+    margin: 0 8px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .containerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .containerSection {
+    border-radius: 4px;
+  }
+  

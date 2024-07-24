@@ -7,10 +7,11 @@ import Link from "next/link";
 async function getData() {
   try {
     const [responseAnime, responseManga] = await Promise.all([
-      fetch("http://localhost:8000/anime/"),
-      fetch("http://localhost:8000/manga/"),
+      fetch("http://localhost:8000/highest-rated-anime/"), // Correct endpoint for anime
+      fetch("http://localhost:8000/highest-rated-manga/"), // Correct endpoint for manga
     ]);
-
+    console.log("oi ", responseAnime)
+    console.log("oi ", responseManga)
     if (!responseAnime.ok || !responseManga.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -27,8 +28,10 @@ async function getData() {
   }
 }
 
+
 export default function Home() {
   const [data, setData] = useState({ anime: [], manga: [] });
+  const BASE_URL = "http://localhost:8000";
 
   useEffect(() => {
     let isMounted = true;
@@ -46,29 +49,16 @@ export default function Home() {
     <main>
       <div className={styles["container-body"]}>
         <div className={styles["container-header"]}>
-          <div className={styles["container-search"]}>
-            <p> Search </p>
-            <input type="text" />
-          </div>
-
-          <div className={styles["container-gender"]}>
-            <p> Gender </p>
-            <input type="text" />
-          </div>
-
-          <div className={styles["container-year"]}>
-            <p> Year </p>
-            <input type="text" />
-          </div>
+          <h1> Wellcome to MangaShiro </h1>
         </div>
         <div className={styles["container-content"]}>
           <div className={styles["container-anime"]}>
-            <h1>BEST ANIME</h1>
+            <h1>BEST ANIMES</h1>
             <div className={styles["container-anime-images"]}>
               {data.anime.map((anime) => (
                 <div key={anime.id}>
-                  <img src={anime.image} alt={anime.title || "Anime image"} />
-                  <Link href={anime.title}>
+                <img src={`${BASE_URL}${anime.image}`} alt={anime.title || "Anime image"} />
+                <Link href={`/anime/${anime.title}`}>
                     <p>{anime.title}</p>
                   </Link>
                 </div>
@@ -77,12 +67,12 @@ export default function Home() {
           </div>
 
           <div className={styles["container-manga"]}>
-            <h1>BEST MANGA</h1>
+            <h1>BEST MANGAS</h1>
             <div className={styles["container-manga-images"]}>
               {data.manga.map((manga) => (
                 <div key={manga.id}>
-                  <img src={manga.image} alt={manga.title || "Manga image"} />
-                  <Link href={manga.title}>
+                  <img src={`${BASE_URL}${manga.image}`} alt={manga.title || "manga image"} />
+                  <Link href={`/manga/${manga.title}`}>
                     <p>{manga.title}</p>
                   </Link>
                 </div>

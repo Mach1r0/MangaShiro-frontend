@@ -1,0 +1,39 @@
+.container-all {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: brown;
+    height: 100vh;
+}
+
+.container-header {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.container-content {
+    display: grid;
+    background-color: aqua;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px; 
+    margin-top: 40px;
+}
+
+.container-anime {
+    display: flex;
+    flex-direction: column; /* Ensure image and title are stacked vertically */
+    align-items: center; /* Center-aligns content within each grid item */
+}
+
+.container-anime img {
+    width: 100%; /* Makes image take up the full width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+}
+
+.container-anime p {
+    text-align: center; /* Centers the text below each image */
+    margin: 0; /* Removes default margin */
+}

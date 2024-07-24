@@ -20,7 +20,7 @@ export default function Navbar() {
               </Link>            
             </li>
             <li>
-              <Link href="/search/animelist" legacyBehavior>
+              <Link href="/search/anime" legacyBehavior>
                 <a className={styles['container-links']}>Search</a>
               </Link>
             </li>
@@ -30,7 +30,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/users/anime" legacyBehavior>
+              <Link href="/users/animelist" legacyBehavior>
                 <a className={styles['container-links']}>Anime List</a>
               </Link>
             </li>
