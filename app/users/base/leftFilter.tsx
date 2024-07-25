@@ -25,18 +25,20 @@ const SidebarFilter = () => {
 
             </select>
         </div>
+        
         <div className={styles.filterItem}>
           <label htmlFor="status">Status</label>
           <select id="status">
             <option value="">Select</option>
-            {/* Add options here */}
+
           </select>
         </div>
+
         <div className={styles.filterItem}>
           <label htmlFor="genres">Genres</label>
           <select id="genres">
             <option value="">Select</option>
-            {/* Add options here */}
+
           </select>
         </div>
     

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../mangalist/mangalist.module.css';
 
-const AnimeListSection = ({ title, data }) => {
+const BaseListSection = ({ title, data }) => {
   return (
     <div className={styles['containerSection']}>
       <h2>{title}</h2>
@@ -34,4 +34,4 @@ const AnimeListSection = ({ title, data }) => {
   );
 };
 
-export default AnimeListSection;
+export default BaseListSection;

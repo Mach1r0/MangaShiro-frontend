@@ -37,7 +37,7 @@ export default function Navbar() {
           </div>
         </ul>
         <div className={styles['container-profile']}>
-          <Link href="/profile" legacyBehavior>
+          <Link href="/user" legacyBehavior>
             <a className={styles['container-links']}>Profile</a>
           </Link>
         </div>

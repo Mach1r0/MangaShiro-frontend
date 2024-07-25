@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimeListSection from '../base/page';
+import BaseListSection from '../base/page';
 import styles from './mangalist.module.css';
 import SidebarFilter from '../base/leftFilter'
 
@@ -52,11 +52,13 @@ const PlanningData = [
 export default function MangaList() {
   return (
     <main className={styles['containeAll']}>
-      <SidebarFilter/>
-      <AnimeListSection title="Watching" data={watchingData} />
-      <AnimeListSection title="Completed" data={completedData} />
-      <AnimeListSection title="Dropped" data={DroppedData} />
-      <AnimeListSection title="Planning" data={PlanningData} />
+        <SidebarFilter/>
+      <div className={styles['ContainerContent']}>
+        <BaseListSection title="Watching" data={watchingData} />
+        <BaseListSection title="Completed" data={completedData} />
+        <BaseListSection title="Dropped" data={DroppedData} />
+        <BaseListSection title="Planning" data={PlanningData} />
+      </div>
     </main>
   );
 }
