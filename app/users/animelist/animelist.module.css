@@ -1,0 +1,14 @@
+.containeAll{
+    display: flex;
+    height: 100vh;
+}
+
+.containerStatus{
+    margin-top: 40px;
+    margin-left: 50px;
+    display: flex; 
+    flex-direction: column;
+    gap: 2rem;    
+    background-color: aqua;
+    width: 70%;
+}

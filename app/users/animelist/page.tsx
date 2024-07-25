@@ -1,7 +1,7 @@
 import React from 'react';
 import AnimeListSection from '../base/page';
 import styles from './animelist.module.css';
-
+import SidebarFilter from '../base/leftFilter'
 const watchingData = [
   {
     id: 1,
@@ -11,7 +11,6 @@ const watchingData = [
     type: 'TV',
     image: 'path/to/image1.jpg',
   },
-  // Add more watching data here
 ];
 
 const completedData = [
@@ -23,7 +22,6 @@ const completedData = [
     type: 'Movie',
     image: 'path/to/image2.jpg',
   },
-  // Add more completed data here
 ];
 
 const DroppedData = [ 
@@ -51,10 +49,13 @@ const PlanningData = [
 export default function MangaList() {
   return (
     <main className={styles['containeAll']}>
-      <AnimeListSection title="Watching" data={watchingData} />
-      <AnimeListSection title="Completed" data={completedData} />
-      <AnimeListSection title="Dropped" data={DroppedData} />
-      <AnimeListSection title="Planning" data={PlanningData} />
+      <SidebarFilter/>
+      <div className={styles['containerStatus']}>
+        <AnimeListSection title="Watching" data={watchingData} />
+        <AnimeListSection title="Completed" data={completedData} />
+        <AnimeListSection title="Dropped" data={DroppedData} />
+        <AnimeListSection title="Planning" data={PlanningData} />
+      </div>
     </main>
   );
 }

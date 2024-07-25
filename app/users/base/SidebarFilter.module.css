@@ -1,0 +1,52 @@
+.sidebar {
+    /* Add your sidebar styles here */
+    width: 250px;
+    background-color: #1a1a1a;
+    padding: 16px;
+    color: white;
+  }
+  
+  .search input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    background-color: #333;
+    border: none;
+    color: white;
+  }
+  
+  .lists {
+    margin-bottom: 16px;
+  }
+  
+  .lists ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lists li {
+    margin: 8px 0;
+    cursor: pointer;
+  }
+  
+  .filters {
+    margin-top: 16px;
+  }
+  
+  .filterItem {
+    margin-bottom: 16px;
+  }
+  
+  .filterItem label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .filterItem select {
+    width: 100%;
+    padding: 8px;
+    background-color: #333;
+    border: none;
+    color: white;
+  }
+  
