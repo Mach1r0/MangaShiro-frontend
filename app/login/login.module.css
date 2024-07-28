@@ -1,7 +1,7 @@
 .container-all {
     display: flex;
     flex-direction: column;
-    background-color: rgb(var(--color-background));
+    background-color: #161414;
     height: 100vh;
     width: 100%;
     justify-content: center;
@@ -14,45 +14,58 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 600px;
+    height: 568px;
     width: 80%; 
-    max-width: 430px;
-    background-color: rgb(var(--color-foreground));
+    max-width: 399px;
+    background-color: #333333;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .container-form small {
-    color: rgb(var(--color-text-lighter));
+    color: white;
 }
 
 .container-form h1 {
-    color: rgb(var(--color-text-lighter));
+    color: #FFFFFF; 
     font-size: 2.4rem;
-    margin-bottom: 20px;
+    font-family: 'Inria Sans';
+    margin-bottom: 24px;
 }
 
 .container-form button {
-    color: black;
-    background-color: rgb(var(--color-blue));
-    width: 150px;
-    height: 35px;
+    color: #FFFFFF; 
+    background-color: #296990; 
+    width: 98px;
+    height: 37px;
     display: flex;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
+    border: none;
+    cursor: pointer; 
 }
 
 .container-input {
     width: 70%; 
-    max-width: 450px; 
+    max-width: 319px; 
     font-size: 14px;
     display: flex;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(var(--color-text-lighter));
+    padding: 0 10px; 
 }
 
 .container-form a {
     color: rgb(var(--color-blue));
+}
+
+.container-small a {
+    color: #296990; 
+}
+
+.container-small{
+    margin-top: 100px;
 }

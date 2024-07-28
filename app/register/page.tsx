@@ -5,6 +5,7 @@ import Style from './register.module.css';
 export default function Register() {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
+    const [nickname, setNickname] = useState(''); // Added nickname
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState(null);
@@ -17,10 +18,11 @@ export default function Register() {
             return;
         }
 
-        const data = { email, username, password };
+        // Include nickname in the data
+        const data = { email, name: username, nickname, password };
 
         try {
-            const response = await fetch('http://localhost:8000/user/UserCreate/', {
+            const response = await fetch('http://localhost:8000/user/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,15 +31,16 @@ export default function Register() {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to create user');
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'Failed to create user');
             }
 
             const result = await response.json();
             console.log('User created:', result);
-            setError(null); 
-
+            setError(null);
+            // Optionally redirect or show a success message
         } catch (error) {
-            setError(error.message);
+            setError(error.message || 'An unknown error occurred');
         }
     };
 
@@ -60,6 +63,12 @@ export default function Register() {
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     <input
+                        type="text"
+                        placeholder="Nickname"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                    />
+                    <input
                         type="password"
                         placeholder="Password"
                         value={password}
@@ -71,6 +80,7 @@ export default function Register() {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
+
                     <div className={Style['container-down']}>
                         <button type="submit">Sign up</button>
                         <small>
