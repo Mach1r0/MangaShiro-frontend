@@ -5,7 +5,7 @@ import Style from './register.module.css';
 export default function Register() {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
-    const [nickname, setNickname] = useState(''); // Added nickname
+    const [nickname, setNickname] = useState(''); 
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState(null);
@@ -14,11 +14,10 @@ export default function Register() {
         event.preventDefault();
 
         if (password !== confirmPassword) {
-            setError('Passwords do not match');
+            setError("Passwords do not match");
             return;
         }
-
-        // Include nickname in the data
+        
         const data = { email, name: username, nickname, password };
 
         try {
@@ -38,7 +37,6 @@ export default function Register() {
             const result = await response.json();
             console.log('User created:', result);
             setError(null);
-            // Optionally redirect or show a success message
         } catch (error) {
             setError(error.message || 'An unknown error occurred');
         }
