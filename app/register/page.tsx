@@ -1,9 +1,12 @@
 'use client';
 import React, { useState } from 'react';
 import Style from './register.module.css';
+import { useRouter } from 'next/navigation';
+import { Router } from 'react-router-dom';
 
 export default function Register() {
     const [email, setEmail] = useState('');
+    const router = useRouter();
     const [username, setUsername] = useState('');
     const [nickname, setNickname] = useState(''); 
     const [password, setPassword] = useState('');
@@ -28,6 +31,10 @@ export default function Register() {
                 },
                 body: JSON.stringify(data),
             });
+            
+            if(response.ok){
+                router.push('/login'); 
+            }
 
             if (!response.ok) {
                 const errorData = await response.json();

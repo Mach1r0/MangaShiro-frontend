@@ -1,13 +1,15 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import Style from "./login.module.css";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); // Add error state for handling errors
+  const [error, setError] = useState(null);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -21,22 +23,24 @@ export default function Login() {
       const response = await fetch("http://localhost:8000/user/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // Make sure this is included to allow cookies
+        credentials: "include",
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        const errorMessage = await response.text(); // Get error message from the response
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Login successful:", result);
+
+        setError(null);
+
+        router.push('/'); 
+      } else {
+        const errorMessage = await response.text();
         throw new Error(`Error: ${errorMessage || response.status}`);
       }
-
-      const result = await response.json();
-      console.log("Login successful:", result);
-      setError(null); // Clear any previous errors
-      // Optionally redirect or handle successful login
     } catch (error) {
       console.error("Error on login request:", error.message);
-      setError(error.message); // Set error message to display to the user
+      setError(error.message);
     }
   };
 
@@ -51,8 +55,7 @@ export default function Login() {
       <div className={Style["container-all"]}>
         <div className={Style["container-form"]}>
           <h1>Login</h1>
-          {error && <p style={{ color: "red" }}>{error}</p>}{" "}
-          {/* Display error message */}
+          {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error message */}
           <form onSubmit={handleLogin}>
             <input
               className={Style["container-input"]}
