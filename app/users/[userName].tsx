@@ -13,7 +13,7 @@ const UserPage = () => {
     if (userName) {
       const fetchUserData = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/users/${userName}`);
+          const response = await fetch(`http://localhost:8000/users/${slug}`);
           if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
           }

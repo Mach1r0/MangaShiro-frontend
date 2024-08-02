@@ -7,8 +7,8 @@ import Link from "next/link";
 async function getData() {
   try {
     const [responseAnime, responseManga] = await Promise.all([
-      fetch("http://localhost:8000/highest-rated-anime/"), // Correct endpoint for anime
-      fetch("http://localhost:8000/highest-rated-manga/"), // Correct endpoint for manga
+      fetch("http://localhost:8000/anime/Highest-anime/"), 
+      fetch("http://localhost:8000/manga/highest-rated-manga/"), 
     ]);
     console.log("oi ", responseAnime)
     console.log("oi ", responseManga)
