@@ -1,0 +1,5 @@
+.container-all{
+    display: flex;
+    color: black;
+    flex-direction: column;
+}

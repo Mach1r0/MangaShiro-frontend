@@ -1,4 +1,4 @@
-@import '../base/page.module.css';
+@import '@/app/users/base/css/content.module.css';
 
 .containeAll {
     display: flex;

@@ -1,4 +1,4 @@
-import styles from './SidebarFilter.module.css'; // Import your CSS module
+import styles from './css/SidebarFilter.module.css'; // Import your CSS module
 
 const SidebarFilter = () => {
   return (

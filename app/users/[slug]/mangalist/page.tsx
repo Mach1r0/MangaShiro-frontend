@@ -1,7 +1,8 @@
 import React from 'react';
-import BaseListSection from '../base/page';
-import styles from './animelist.module.css';
-import SidebarFilter from '../base/leftFilter'
+import BaseListSection from '../../base/content';
+import styles from '../css/mangalist.module.css';
+import SidebarFilter from '../../base/leftFilter'
+
 const watchingData = [
   {
     id: 1,
@@ -24,7 +25,7 @@ const completedData = [
   },
 ];
 
-const DroppedData = [ 
+const DroppedData = [
   {
     id: 2,
     title: 'AKIRA',
@@ -33,24 +34,26 @@ const DroppedData = [
     type: 'Movie',
     image: 'path/to/image2.jpg',
   },
-]; 
+];
 
 const PlanningData = [
   {
-  id: 2,
-  title: 'AKIRA',
-  score: 10,
-  progress: '1',
-  type: 'Movie',
-  image: 'path/to/image2.jpg',
-},
-]; 
+    id: 2,
+    title: 'AKIRA',
+    score: 10,
+    progress: '1',
+    type: 'Movie',
+    image: 'path/to/image2.jpg',
+  },
+];
 
-export default function AnimeListSection() {
+
+
+export default function MangaList() {
   return (
     <main className={styles['containeAll']}>
-      <SidebarFilter/>
-      <div className={styles['containerStatus']}>
+        <SidebarFilter/>
+      <div className={styles['ContainerContent']}>
         <BaseListSection title="Watching" data={watchingData} />
         <BaseListSection title="Completed" data={completedData} />
         <BaseListSection title="Dropped" data={DroppedData} />

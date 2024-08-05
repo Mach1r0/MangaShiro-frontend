@@ -1,0 +1,31 @@
+.container-all {
+  background-color: #333333;
+  display: flex;
+  color: white;
+  height: 43px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+}
+
+.container-nav {
+  gap: 6rem;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  font-weight: bold;
+  font-family: 'Inria Sans' sans-serif; 
+}
+
+.container-links {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}

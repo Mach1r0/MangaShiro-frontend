@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from '../mangalist/mangalist.module.css';
+import Style from '../base/css/content.module.css';
 
 const BaseListSection = ({ title, data }) => {
   return (
-    <div className={styles['containerSection']}>
+    <div className={Style['containerSection']}>
       <h2>{title}</h2>
-      <div className={styles['listContainer']}>
+      <div className={Style['listContainer']}>
         <table>
           <thead>
             <tr>
@@ -19,7 +19,7 @@ const BaseListSection = ({ title, data }) => {
             {data.map((anime) => (
               <tr key={anime.id}>
                 <td>
-                  <img src={anime.image} alt={anime.title} className={styles['animeImage']} />
+                  <img src={anime.image} alt={anime.title} className={Style['animeImage']} />
                   {anime.title}
                 </td>
                 <td>{anime.score}</td>
